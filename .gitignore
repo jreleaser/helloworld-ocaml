@@ -1,2 +1,5 @@
 target/
 out/
+*.cmx
+*.cmd
+*.o

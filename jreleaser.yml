@@ -7,7 +7,7 @@ matrix:
     - { ext: '',     platform: osx-aarch_64   }
     - { ext: '',     platform: osx-x86_64     }
     - { ext: '',     platform: linux-x86_64   }
-    - { ext: '.exe', platform: windows-x86_64 }
+    #- { ext: '.exe', platform: windows-x86_64 }
 
 hooks:
   script:
@@ -15,7 +15,7 @@ hooks:
       - run: |
           echo "Compiling {{ matrix.platform }}"
           mkdir -p target/{{ matrix.platform }}
-          ocamlopt -o target/{{ matrix.platform }}/helloworld{{ matrix.ext }} src/helloworld.ml
+          opam exec -- ocamlc -o target/{{ matrix.platform }}/helloworld{{ matrix.ext }} src/helloworld.ml
         verbose: true
         applyDefaultMatrix: true
         verbose: true
